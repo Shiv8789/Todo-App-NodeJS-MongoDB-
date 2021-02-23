@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section class="section1">
+        <div class="navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">TODO</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 ml-auto mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link text-white " aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="#">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Support</a>
+                      </li>
+                    
+                    </ul>
+                    <form class="d-flex ml-auto" action="/search" method="POST">
+                      <input class="form-control me-2" type="search" name="search" placeholder="Search Todo ....." aria-label="Search">
+                      <button class="btn btn-primary ml-3" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+        </div>
+
+      
+
+        <div class="todo">
+            <div class="container-fluid text-center" >
+                
+                <div class="formData">
+                  <form action="/todo" method="POST">
+                    <div class="mb-3 row offset-4 mt-5">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Todo:</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="work" class="form-control" id="staticEmail" required>
+                      </div>
+                    </div>
+                    <div class="mb-3 row offset-4">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Due Date:</label>
+                      <div class="col-sm-4">
+                        <input type="date" name="date" class="form-control" id="inputPassword" required>
+                      </div>
+                    </div>
+                   <div class="row offset-6">
+                      <input class="btn btn-primary col-sm-2" type="submit" value="Save">
+
+                   </div>
+                  
+
+                 </form>
+                </div>
+
+                <div class="d-flex justify-content-center">
+
+                  <table class="table mt-5 w-50 ">
+                    <thead>
+                      <tr>
+                        <th scope="col " class="h4">Todo</th>
+                        <th scope="col " class="h4">DueDate</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    
+                      <tr>
+                        <th scope="row"><%=data.todo%><a href="/deleteTodo/<%=data._id%>" class="btn btn-danger btn-sm ml-4" role="button">Delete</a></th>
+                        <td><%=data.postedAt.toDateString()%></td>
+                        
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
